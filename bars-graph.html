@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bars Graph</title>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+
+</html>
+
+<script>
+
+    function rectangleCreator(x, y, recWidth, recHeight, colour) {
+        var screen = document.querySelector('canvas');
+        var brush = screen.getContext('2d');
+
+        brush.fillStyle = colour;
+        brush.fillRect(x, y, recWidth, recHeight);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(x, y, recWidth, recHeight);
+    }
+
+    function textCreator(x, y, text) {
+        var screen = document.querySelector('canvas');
+        var brush = screen.getContext('2d');
+
+        brush.font = '15px Georgia';
+        brush.fillStyle = 'black';
+        brush.fillText(text, x, y);
+    }
+
+    function barCreator(x, y, serie, colours, text) {
+
+        textCreator(x, y - 10, text);
+
+        var heightTotal = 0;
+        for (var i = 0; i < serie.length; i++) {
+            var currentHeight = serie[i];
+            rectangleCreator(x, y + heightTotal, 50, currentHeight, colours[i]);
+            heightTotal = heightTotal + currentHeight;
+        }
+    }
+
+    var colours = ['blue', 'green', 'yellow', 'red'];
+    var serie2015 = [50, 25, 20, 5];
+    var serie2016 = [65, 20, 13, 2];
+
+    barCreator(50, 50, serie2015, colours, '2015');
+    barCreator(150, 50, serie2016, colours, '2016');
+
+</script>

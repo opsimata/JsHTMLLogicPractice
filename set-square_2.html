@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Square 2</title>
+</head>
+
+<body>
+    <canvas width="600" height="400">
+
+    </canvas>
+</body>
+
+</html>
+
+<script>
+    var screen = document.querySelector('canvas');
+    var brush = screen.getContext('2d');
+
+    function squareCreator(xa, ya, xc, yc, colour) {
+        brush.fillStyle = colour;
+        brush.beginPath();
+        brush.moveTo(xa, ya);
+        brush.lineTo(xa, yc);
+        brush.lineTo(xc, yc);
+        brush.fill();
+        brush.fillStyle = 'white'
+        brush.beginPath();
+        brush.moveTo((6 * xa + xc) / 7, (9 * ya + 5 * yc) / 14);
+        brush.lineTo((6 * xa + xc) / 7, (ya + 6 * yc) / 7);
+        brush.lineTo((5 * xa + 9 * xc) / 14, (ya + 6 * yc) / 7);
+        brush.fill();
+    }
+    squareCreator(50, 50, 400, 400, 'black');
+</script>

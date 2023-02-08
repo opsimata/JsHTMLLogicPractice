@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./src/components/DrawnSquare.js"></script>
+    <title>Canvas Loops</title>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+
+</html>
+
+<script>
+
+let axisXSize = 0;
+
+    // while (axisXSize < 600) {
+    //     drawnSquare(axisXSize, 0, "green");
+    //     drawnSquare(axisXSize, 50, "red");
+    //     drawnSquare(axisXSize, 100, "blue");
+    //     axisXSize = axisXSize + 50;
+    // }
+
+    // axisXSize = 0;
+
+    for (axisXSize = 0; axisXSize < 600; axisXSize = axisXSize + 50) {
+        drawnSquare(axisXSize, 0, "green"); 
+    }
+
+</script>

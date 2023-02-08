@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraction</title>
+</head>
+
+<body>
+    <canvas width="700" height="500"></canvas>
+</body>
+
+</html>
+
+<script>
+
+    function squareCreator(x, y, size, colour) {
+        var screen = document.querySelector('canvas');
+        var brush = screen.getContext('2d');
+
+        brush.fillStyle = colour;
+        brush.fillRect(x, y, size, size);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(x, y, size, size);
+    }
+
+    function textCreator(text, x, y) {
+        var screen = document.querySelector('canvas');
+        var brush = screen.getContext('2d');
+
+        brush.font = '20px Georgia';
+        brush.fillStyle = 'black';
+        brush.fillText(text, x, y);
+    }
+
+    textCreator("Qual é a fração?", 50, 30);
+
+    var y = 50;
+    squareCreator(50, y, 100, 'green');
+    squareCreator(150, y, 100, 'green');
+    squareCreator(250, y, 100, 'green');
+    squareCreator(350, y, 100, 'white');
+
+</script>
