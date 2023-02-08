@@ -17,11 +17,11 @@
 </html>
 
 <script>
-    
+
     var screen = document.querySelector("canvas");
     var brush = screen.getContext("2d");
 
-    brush.fillStyle = "lightgrey";
+    brush.fillStyle = "#fff";
     brush.fillRect(0, 0, 600, 400);
 
     brush.fillStyle = "green";
@@ -30,4 +30,22 @@
     brush.fillStyle = "red";
     brush.fillRect(400, 0, 200, 400);
 
+    brush.fillStyle = "yellow";
+    brush.beginPath();
+    brush.moveTo(300, 200);
+    brush.lineTo(200, 400);
+    brush.lineTo(400, 400);
+    brush.fill();
+
+    brush.fillStyle = "purple";
+    brush.beginPath();
+    brush.moveTo(300, 200);
+    brush.lineTo(200, 0);
+    brush.lineTo(400, 0);
+    brush.fill();
+
+    brush.fillStyle = "blue";
+    brush.beginPath();
+    brush.arc(300, 200, 50, 0, 2 * 3.14)
+    brush.fill();
 </script>
