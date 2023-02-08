@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creeper</title>
+</head>
+
+<body>
+    <canvas width="600" height="400">
+
+    </canvas>
+</body>
+
+</html>
+
+<script>
+
+    var screen = document.querySelector("canvas");
+    var brush = screen.getContext("2d");
+
+    // cabeça
+    brush.fillStyle = "darkgreen";
+    brush.fillRect(200, 50, 350, 300);
+
+    // olhos
+    brush.fillStyle = "black";
+    brush.fillRect(250, 110, 90, 90);
+    brush.fillRect(410, 110, 90, 90);
+
+    //nariz
+    brush.fillRect(340, 200, 70, 100);
+
+    //boca
+    brush.fillRect(300, 240, 40, 110);
+    brush.fillRect(410, 240, 40, 110);
+
+
+</script>
