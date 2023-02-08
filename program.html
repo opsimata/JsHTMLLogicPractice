@@ -17,9 +17,17 @@
 </html>
 
 <script>
+    
     var screen = document.querySelector("canvas");
     var brush = screen.getContext("2d");
 
-    brush.fillStyle = "#c0c0c0";
+    brush.fillStyle = "lightgrey";
     brush.fillRect(0, 0, 600, 400);
+
+    brush.fillStyle = "green";
+    brush.fillRect(0, 0, 200, 400);
+
+    brush.fillStyle = "red";
+    brush.fillRect(400, 0, 200, 400);
+
 </script>
