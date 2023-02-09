@@ -25,27 +25,25 @@
     brush.fillRect(0, 0, 600, 400);
 
     var colours = ["blue", "red", "green"]
-    var colorIndex = 0;
+    var colourIndex = 0;
 
     function circleCreator(event) {
         var posX = event.pageX - screen.offsetLeft;
         var posY = event.pageY - screen.offsetTop;
 
-        brush.fillStyle = colours[colorIndex];
+        brush.fillStyle = colours[colourIndex];
         brush.beginPath();
         brush.arc(posX, posY, 10, 0, 2 * 3.14);
         brush.fill();
         console.log(posX + "," + posY);
-
-        console.log(event)
     }
 
     screen.onclick = circleCreator;
 
     function colourChanger() {
-        colorIndex++;
-        if (colorIndex >= colours.lenght) {
-            colorIndex = 0;
+        colourIndex++;
+        if (colourIndex >= 3) {
+            colourIndex = 0;
         }
         return false;
     }
