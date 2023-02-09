@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./src/components/Clicker.js"></script>
+
+    <title>Canvas Flag</title>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+
+</html>
+
+<script>
+    var screen = document.querySelector("canvas");
+    var brush = screen.getContext("2d");
+
+    brush.fillStyle = "grey";
+    brush.fillRect(0, 0, 600, 400);
+
+    var colours = ["blue", "red", "green"]
+    var colourIndex = 0;
+    var circleSize = 10;
+
+    function circleCreator(event) {
+        var posX = event.pageX - screen.offsetLeft;
+        var posY = event.pageY - screen.offsetTop;
+
+        brush.fillStyle = colours[colourIndex];
+        brush.beginPath();
+        if (event.shiftKey == true) {
+            circleSize = circleSize + 20;
+        }else{
+            circleSize = 10
+        }
+        brush.arc(posX, posY, circleSize, 0, 2 * 3.14);
+        brush.fill();
+        console.log(posX + "," + posY);
+    }
+
+    screen.onclick = circleCreator;
+
+    function colourChanger() {
+        colourIndex++;
+        if (colourIndex >= 3) {
+            colourIndex = 0;
+        }
+        return false;
+    }
+
+    screen.oncontextmenu = colourChanger;
+
+</script>
