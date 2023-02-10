@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/assets/style/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <canvas width="600" height="400"></canvas>
+    <div>
+        <h3>Selecione a cor do pincel: </h3>
+        <input type="color">
+    </div>
+
+
+    <script>
+        var palette = document.querySelector('input');
+        var screen = document.querySelector('canvas');
+        var brush = screen.getContext('2d');
+        brush.fillStyle = '#FFF';
+        brush.fillRect(0, 0, 600, 400);
+        var drawning = false;
+
+        function circleCreator(evento) {
+            if (drawning) {
+                var x = evento.pageX - screen.offsetLeft;
+                var y = evento.pageY - screen.offsetTop;
+                brush.fillStyle = palette.value;
+                brush.beginPath();
+                brush.arc(x, y, 10, 0, 2 * 3.14);
+                brush.fill();
+            }
+        }
+        screen.onmousemove = circleCreator;
+
+        screen.onmousedown = function () {
+            drawning = true;
+        }
+
+        screen.onmouseup = function () {
+            drawning = false;
+        }
+    </script>
+</body>
+
+</html>
