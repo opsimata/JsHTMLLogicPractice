@@ -19,8 +19,10 @@
 <script>
     var screen = document.querySelector('canvas');
     var brush = screen.getContext('2d');
+
     brush.fillStyle = 'lightgray';
     brush.fillRect(0, 0, 600, 400);
+    
     var radius = 10;
 
     function circleCreator(posX, posY, radius, colour) {
@@ -29,7 +31,7 @@
         brush.arc(posX, posY, radius, 0, 2 * Math.PI);
         brush.fill();
     }
-    
+
     circleCreator(300, 200, radius + 20, 'red');
     circleCreator(300, 200, radius + 10, 'white');
     circleCreator(300, 200, radius, 'red');
