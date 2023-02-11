@@ -30,5 +30,12 @@
         brush.fill();
     }
 
-    circleCreator(20, 20, 10);
+    function screenWiper(params) {
+        brush.clearRect(0, 0, 600, 400);
+    }
+
+    for (let axisX = 20; axisX < 580; axisX++) {
+        screenWiper();
+        circleCreator(axisX, 20, 10);
+    }
 </script>
