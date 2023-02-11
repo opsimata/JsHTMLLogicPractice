@@ -34,8 +34,14 @@
         brush.clearRect(0, 0, 600, 400);
     }
 
-    for (let axisX = 20; axisX < 580; axisX++) {
+    let posX = 20;
+
+    function screenRefresher(params) {
         screenWiper();
-        circleCreator(axisX, 20, 10);
+        circleCreator(posX, 20, 10);
+        posX++;
     }
+
+    setInterval(screenRefresher, 5);
+
 </script>
