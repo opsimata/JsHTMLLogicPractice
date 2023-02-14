@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Animation</title>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+
+</html>
+
+<script>
+    var screen = document.querySelector('canvas');
+    var brush = screen.getContext('2d');
+
+    brush.fillStyle = 'lightgray';
+    brush.fillRect(0, 0, 600, 400);
+
+    function circleCreator(axisX, axisY, radius) {
+        brush.fillStyle = "black";
+        brush.beginPath();
+        brush.arc(axisX, axisY, radius, 0, 2 * Math.PI);
+        brush.fill();
+    }
+
+    function screenWiper() {
+        brush.clearRect(0, 0, 600, 400);
+    }
+
+    let posX = 20;
+    let direction = 1;
+
+    function screenRefresher() {
+        screenWiper();
+        if (posX > 580) {
+            direction = -1;
+        }
+        if (posX < 10) {
+            direction = 1;
+        }
+        circleCreator(posX, 20, 10);
+        posX = posX + direction;
+    }
+
+    setInterval(screenRefresher, 5);
+
+</script>
