@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas Target</title>
+    <title>Circle Animation</title>
 </head>
 
 <body>
@@ -28,13 +28,13 @@
         brush.fill();
     }
 
-    function screenWiper(params) {
+    function screenWiper() {
         brush.clearRect(0, 0, 600, 400);
     }
 
     let posX = 20;
 
-    function screenRefresher(params) {
+    function screenRefresher() {
         screenWiper();
         circleCreator(posX, 20, 10);
         posX++;
