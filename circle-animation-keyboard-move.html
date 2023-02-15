@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/assets/style/style.css">
+    <title>Circle Pulse</title>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+
+</html>
+
+<script>
+    var screen = document.querySelector('canvas');
+    var brush = screen.getContext('2d');
+
+    brush.fillStyle = 'lightgray';
+    brush.fillRect(0, 0, 600, 400);
+
+    var posX = 20;
+    var posY = 20;
+
+    var left = 37;
+    var up = 38;
+    var right = 39;
+    var down = 40;
+
+    var rate = 10;
+
+    function circleCreator(posX, posY, radius) {
+        brush.fillStyle = "black";
+        brush.beginPath();
+        brush.arc(posX, posY, radius, 0, 2 * Math.PI);
+        brush.fill();
+    }
+
+    function screenWiper() {
+        brush.clearRect(0, 0, 600, 400);
+    }
+
+    function screenRefresher() {
+        screenWiper();
+        circleCreator(posX, posY, 10);
+    }
+
+    setInterval(screenRefresher, 10);
+
+    function keyboardScan(event) {
+
+        // console.log(event);
+
+        if (event.keyCode == up) {
+            posY = posY - rate;
+            if (posY <= 0) {
+                posY = posY + 10;
+            }
+        }
+        if (event.keyCode == down) {
+            posY = posY + rate;
+
+            if (posY >= 400) {
+                posY = posY - 10;
+            }
+        }
+        if (event.keyCode == left) {
+            posX = posX - rate;
+            if (posX <= 0) {
+                posX = posX + 10;
+            }
+        }
+        if (event.keyCode == right) {
+            posX = posX + rate;
+            if (posX >= 600) {
+                posX = posX - 10;
+            }
+        }
+    }
+
+    document.onkeydown = keyboardScan;
+
+</script>
